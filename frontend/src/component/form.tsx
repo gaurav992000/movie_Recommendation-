@@ -24,7 +24,8 @@ export default function Formmovie() {
     setError('');
     
     try {
-      const response = await fetch('/api/movies/recommend', {
+       const apiUrl = import.meta.env.VITE_API_URL || '/api/movies/recommend';
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ preference }),
